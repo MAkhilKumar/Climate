@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRA-DSS • Climate Risk Navigator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="brand"><div class="brand-icon">🌍</div><div><b>CRA-DSS</b><small>Climate Risk Studio</small></div></div>
+  <nav>
+    <a class="active">◉ Dashboard</a>
+    <a>◈ Risk Assessment</a>
+    <a>◇ Adaptation</a>
+    <a>▦ Scenario Lab</a>
+    <a>◫ Assessment History</a>
+  </nav>
+  <div class="side-note"><b>Live Weather Intelligence</b><p>City searches use live weather data to generate a location-specific climate risk assessment.</p></div>
+</aside>
+
+<main>
+<header>
+  <div>
+    <span class="eyebrow">LIVE WEATHER • CLIMATE INTELLIGENCE</span>
+    <h1>Climate Risk Navigator</h1>
+    <p>Search a city to assess climate-related environmental risk.</p>
+  </div>
+  <div class="status">● Weather API Connected</div>
+</header>
+
+<section class="toolbar card">
+  <div class="search-box">
+    <label for="location">Enter City</label>
+    <input id="location" type="text" value="Hyderabad" placeholder="e.g. Hyderabad, Mumbai, Delhi">
+  </div>
+  <button id="demo" type="button">Demo</button>
+  <button id="assess" class="primary" type="button">Search &amp; Assess</button>
+</section>
+
+<section id="locationInfo" class="location-info card hidden">
+  <div><span>LOCATION</span><strong id="placeName">—</strong></div>
+  <div><span>COUNTRY</span><strong id="country">—</strong></div>
+  <div><span>COORDINATES</span><strong id="coordinates">—</strong></div>
+</section>
+
+<section class="metrics">
+  <div class="metric card"><span>Overall Risk</span><strong id="score">—</strong><em id="level">Search for a city</em></div>
+  <div class="metric card"><span>Priority</span><strong id="priority">—</strong><em id="focus">Primary focus: —</em></div>
+  <div class="metric card"><span>Current Temperature</span><strong id="temperatureDisplay">—</strong><em id="weatherDescription">—</em></div>
+  <div class="metric card"><span>7-Day Rainfall</span><strong id="rainfallDisplay">—</strong><em>Precipitation forecast</em></div>
+</section>
+
+<section class="card">
+  <div class="cardhead"><div><h2>Live Weather Conditions</h2><p>Data retrieved for the selected city</p></div></div>
+  <div class="weather-grid">
+    <div class="weather-item"><span>🌡 Temperature</span><b id="weatherTemperature">—</b></div>
+    <div class="weather-item"><span>💧 Humidity</span><b id="humidity">—</b></div>
+    <div class="weather-item"><span>🌧 Current Rain</span><b id="precipitation">—</b></div>
+    <div class="weather-item"><span>💨 Wind</span><b id="wind">—</b></div>
+    <div class="weather-item"><span>☁ Condition</span><b id="condition">—</b></div>
+    <div class="weather-item"><span>🌧 7-Day Rain</span><b id="rainfall7">—</b></div>
+  </div>
+</section>
+
+<section class="grid2">
+  <div class="card">
+    <div class="cardhead"><div><h2>Risk Profile</h2><p>Risk contribution by indicator</p></div></div>
+    <div id="bars"><div class="empty">Run a city assessment.</div></div>
+  </div>
+  <div class="card">
+    <div class="cardhead"><div><h2>Adaptation Recommendations</h2><p>Actions based on the calculated risk</p></div></div>
+    <div id="actions" class="actions"><span class="muted">Search a city to generate recommendations.</span></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="cardhead">
+    <div><h2>Recent City Assessments</h2><p>Previous searches stored by the backend</p></div>
+    <button id="refresh" type="button">Refresh</button>
+  </div>
+  <div class="tablewrap">
+    <table><thead><tr><th>City</th><th>Country</th><th>Score</th><th>Level</th><th>Date</th></tr></thead>
+    <tbody id="history"><tr><td colspan="5">No assessments yet.</td></tr></tbody></table>
+  </div>
+</section>
+</main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
